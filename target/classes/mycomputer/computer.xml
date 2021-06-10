@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=
+		"http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- computer 객체 생성하여 값 저장 -->
+	<bean id="computer" class="mycomputer.Computer">
+		<property name="cpu">
+			<value>인텔 cpu</value>
+		</property>
+		<property name="hdd">
+			<value>삼성 hdd</value>
+		</property>
+		<property name="mainboard">
+			<value>엘쥐 메인보드</value>
+		</property>
+	</bean>	
+	
+	<!-- programer 객체 생성하여 값 저장 -->
+	<!-- 자바에서 객체(기본형이 아닌 참조형)를 호출할때는 id속성값으로 호출함 -->
+	<bean id="programer" class="mycomputer.Programer">
+		<constructor-arg>
+			<value>김철수</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>역삼동</value>
+		</constructor-arg>
+		<constructor-arg>
+			<!-- computer가 객체여서 bean값에 상응 -->
+			<!-- ref = 참조자료형 -->
+			<ref bean="computer"/>
+		</constructor-arg>
+	</bean>	
+</beans>

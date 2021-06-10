@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=
+		"http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- ShapeDao 객체생성 하나 실질적으로 처리할수있는걸 서클과랙텡글 다오-->
+	<!-- CircleDao aaa = new CircleDao(); -->
+	<bean id="aaa" class="shape.xmlconfig.CircleDao"></bean>
+	
+	<!-- RectangleDao bbb = new RectangleDao(); -->
+	<bean id="bbb" class="shape.xmlconfig.RectangleDao"></bean>
+	
+	<!-- 객체생성하고 값을 넣어줘야 적용이됨 -->
+	<bean id="circle" class="shape.xmlconfig.Circle">
+		<property name="shapeDao">
+			<ref bean="aaa"/>
+		</property>
+	</bean>
+	
+	<bean id="rectangle" class="shape.xmlconfig.Rectangle">
+		<property name="shapeDao">
+			<ref bean="bbb"/>
+		</property>
+	</bean>
+</beans>
