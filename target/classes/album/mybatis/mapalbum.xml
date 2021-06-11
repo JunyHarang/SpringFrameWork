@@ -31,4 +31,11 @@
 		</if>	
 		order by id desc
 	</select>	
+	
+	<!-- parameterType은 매개변수라고 생각하면 되고, SqlMapConfig에 정의한 Bean Type의 정의한 내용을 적는다. -->
+	<insert id="insertAlbum" parameterType="MyAlbum">
+		insert into albums(id, albumname, song, lyricist, songwriter, transcription, writerdate, image, genre, mediatype, emailagree)
+		values(seqalbum.nextval, #{albumname}, #{song}, #{lyricist}, #{songwriter}, #{transcription}, #{writerdate}, #{image}, #{genre}, #{mediatype}, #{emailagree})
+	</insert>
+
 </mapper>
